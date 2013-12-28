@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="setting">
+        <item>查看通话明细</item>
+        <item>发送信息</item>
+        <item>添加到快速拨号</item>
+        <item>删除</item>
+        <item>同号删除</item>
+        <item>删除全部通话记录</item>
+        <item>添加到黑名单</item>
+        <item>删除黑名单</item>
+    </string-array>
+</resources>

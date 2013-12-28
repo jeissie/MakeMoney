@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/layout_left"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/title_image"
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/title" 
+                android:scaleType="fitXY"/>
+
+            <com.myscrollview.MyScrollview
+                android:id="@+id/scrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/title_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:padding="2dp" >
+
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp" >
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content" >
+
+                            <com.gallery.MyGallery
+                                android:id="@+id/main_gallery"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/title_image"
+                                android:gravity="fill"
+                                android:soundEffectsEnabled="false" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBar1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/apkname"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:id="@+id/gallery_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:singleLine="true"
+                                android:textColor="#000000"
+                                android:textSize="16sp" />
+
+                            <LinearLayout
+                                android:id="@+id/gallery_conunt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal" >
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="1dp" >
+
+                            <FrameLayout
+                                android:id="@+id/popular_items_View1"
+                                android:layout_width="match_parent"
+                                android:layout_height="165dp"
+                                android:background="#2b814c"
+                                android:padding="2dp" >
+
+                                <com.jesse.mxapk.MySurfaceView1
+                                    android:id="@+id/popular_items_imageView1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="130dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:gravity="center"
+                                    android:text="装机必备"
+                                    android:textColor="#ffffff"
+                                    android:textSize="18sp" />
+                            </FrameLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="1dp" >
+
+                            <FrameLayout
+                                android:id="@+id/popular_items_View2"
+                                android:layout_width="match_parent"
+                                android:layout_height="165dp"
+                                android:background="#cdbd00"
+                                android:padding="2dp" >
+
+                                <com.jesse.mxapk.MySurfaceView2
+                                    android:id="@+id/popular_items_imageView2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="130dp" />
+
+                                <TextView
+                                    
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:gravity="center"
+                                    android:text="热门软件"
+                                    android:textColor="#ffffff"
+                                    android:textSize="18sp" />
+                            </FrameLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="1dp" >
+
+                            <FrameLayout
+                                android:id="@+id/popular_items_View3"
+                                android:layout_width="match_parent"
+                                android:layout_height="165dp"
+                                android:background="#c7494c"
+                                android:padding="2dp" >
+
+                                <com.jesse.mxapk.MySurfaceView3
+                                    android:id="@+id/popular_items_imageView3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="130dp" />
+
+                                <TextView 
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:gravity="center"
+                                    android:text="热门游戏"
+                                    android:textColor="#ffffff"
+                                    android:textSize="18sp" />
+                            </FrameLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:padding="2dp" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="#9ad7f1"
+                                android:gravity="center"
+                                android:text="最新应用"
+                                android:textColor="#000000"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="#9ad7f1"
+                                android:gravity="center"
+                                android:text="最新游戏"
+                                android:textColor="#000000"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image1"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text1_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text1_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table11"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image1"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text1_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginRight="3dp"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text1_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image2"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text2_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text2_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image2"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text2_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text2_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image3"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text3_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text3_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table13"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image3"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text3_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text3_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image4"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text4_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text4_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table14"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image4"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text4_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text4_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image5"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text5_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text5_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table15"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image5"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text5_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text5_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image6"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text6_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text6_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table16"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image6"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text6_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text6_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image7"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text7_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text7_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table17"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image7"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text7_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text7_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image8"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text8_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text8_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table18"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image8"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text8_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text8_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table9"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image9"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text9_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text9_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table19"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image9"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text9_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text9_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/table10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_L_image10"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text10_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_L_text10_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/table20"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border"
+                                    android:orientation="horizontal" >
+
+                                    <ImageView
+                                        android:id="@+id/Table_R_image10"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:padding="2dp"
+                                        android:src="@drawable/icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="#ffffff"
+                                        android:orientation="vertical" >
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text10_apk_name"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="marquee"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="13dp" />
+
+                                        <TextView
+                                            android:id="@+id/Table_R_text10_downloads"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:padding="3dp"
+                                            android:singleLine="true"
+                                            android:text="载入中..."
+                                            android:textColor="#000000"
+                                            android:textSize="11dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </TableRow>
+                        </TableLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.myscrollview.MyScrollview>
+
+            <SlidingDrawer
+                android:id="@+id/slidingDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:content="@+id/content"
+                android:handle="@+id/handle"
+                android:topOffset="1dp" >
+
+                <ImageView
+                    android:id="@+id/handle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="17dp"
+                    android:baselineAlignBottom="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/handle" >
+                </ImageView>
+
+                <LinearLayout
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#449bff"
+                    android:orientation="horizontal"
+                    android:padding="10dp" >
+
+                    <AutoCompleteTextView
+                        android:id="@+id/search_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:hint="搜索软件"
+                        android:imeOptions="actionSearch"
+                        android:singleLine="true"
+                        android:textSize="15sp" >
+                    </AutoCompleteTextView>
+
+                    <Button
+                        android:id="@+id/search_button"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/search_scoper_image" >
+                    </Button>
+                </LinearLayout>
+            </SlidingDrawer>
+
+            <Button
+                android:id="@+id/apk_button"
+                style="@drawable/apk_button_imagebutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/apk_button_imagebutton" />
+
+            <Button
+                android:id="@+id/news_button"
+                style="@drawable/news_button_imagebutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/news_button_imagebutton" />
+
+            <ImageView
+                android:id="@+id/setting"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignLeft="@+id/news_button"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/nav_setting" />
+
+        </RelativeLayout>
+    </FrameLayout>
+
+</RelativeLayout>
