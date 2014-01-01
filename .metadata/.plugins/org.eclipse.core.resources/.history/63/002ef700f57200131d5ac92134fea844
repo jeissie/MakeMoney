@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="setting">
+        <item>热门推荐</item>
+        <item>游戏矿区</item>
+        <item>应用矿区</item>
+        <item>休闲矿区</item>
+        <item>工具矿区</item>
+    </string-array>
+    
+    <string-array name="nav_drawer_icons">
+        <item>drawable/back</item>
+        <item>drawable/back</item>
+        <item>drawable/back</item>
+        <item>drawable/back</item>
+        <item>@drawable/back</item>
+    </string-array>
+
+</resources>

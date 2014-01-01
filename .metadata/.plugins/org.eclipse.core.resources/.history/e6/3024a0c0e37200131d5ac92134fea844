@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="setting">
+        <item>setting1</item>
+        <item>setting2</item>
+        <item>setting3</item>
+        <item>setting4</item>
+        <item>setting5</item>
+    </string-array>
+    <string-array name="nav_drawer_icons">
+        <item>@android:drawable/ic_menu_sort_alphabetically</item>
+        <item>@android:drawable/ic_menu_sort_alphabetically</item>
+        <item>@android:drawable/ic_menu_sort_alphabetically</item>
+        <item>@android:drawable/ic_menu_sort_alphabetically</item>
+        <item>@android:drawable/ic_menu_sort_alphabetically</item>
+    </string-array>
+
+</resources>

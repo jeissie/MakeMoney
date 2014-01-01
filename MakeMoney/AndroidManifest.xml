@@ -26,6 +26,18 @@
             android:name="com.jesse.slidingMenu.MenuFragment"
             android:label="@string/title_activity_menu_fragment" >
         </activity>
+        <activity
+            android:name="com.jesse.customLayout.LeftMenuFragmentItem"
+            android:label="@string/title_activity_left_menu_fragment_item" >
+        </activity>
+        <activity
+            android:name="com.jesse.fragment.Content"
+            android:label="@string/title_activity_content" >
+        </activity>
+        <activity
+            android:name="com.jesse.fragment.FrameHome"
+            android:label="@string/title_activity_frame_home" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#444" >
+
+    <LinearLayout
+        android:id="@+id/left_menu"  
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"    
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+        
+        <com.jesse.customLayout.LeftMenuFragmentItem
+            android:id="@+id/item1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        
+    </LinearLayout>
+
+</FrameLayout>

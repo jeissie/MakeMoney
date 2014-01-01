@@ -1,0 +1,14 @@
+package com.jesse.customLayout;
+
+import com.jesse.makemoney.R;
+import com.jesse.makemoney.R.layout;
+import com.jesse.makemoney.R.menu;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class LeftMenuFragmentItem extends RelativeLayout {
+
+
+}

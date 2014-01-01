@@ -1,0 +1,30 @@
+package com.jesse.customLayout;
+
+import android.content.Context;
+import android.widget.RelativeLayout;
+
+public class LeftMenuFragmentItem extends RelativeLayout {
+
+	public LeftMenuFragmentItem(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ImageBtn(Context context, AttributeSet attrs) {
+		11
+		        super(context, attrs);
+		12
+		        // TODO Auto-generated constructor stub
+		13
+		        LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		14
+		        inflater.inflate(R.layout.imagebtn, this);
+		15
+		        imageView=(ImageView) findViewById(R.id.imageView1);
+		16
+		        textView=(TextView)findViewById(R.id.textView1);
+		17
+		    }
+
+
+}

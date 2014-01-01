@@ -1,0 +1,26 @@
+package com.jesse.customLayout;
+
+import com.jesse.makemoney.R;
+import com.jesse.makemoney.R.layout;
+import com.jesse.makemoney.R.menu;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class LeftMenuFragmentItem extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_left_menu_fragment_item);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.left_menu_fragment_item, menu);
+		return true;
+	}
+
+}
