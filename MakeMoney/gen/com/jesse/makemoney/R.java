@@ -144,36 +144,44 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class drawable {
         public static final int back=0x7f020000;
-        public static final int drawer_shadow=0x7f020001;
-        public static final int frame_menu_background=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int ic_main_action_personal_normal=0x7f020004;
-        public static final int ic_main_action_personal_pressed=0x7f020005;
-        public static final int ic_person=0x7f020006;
-        public static final int shadow=0x7f020007;
+        public static final int bitmap1=0x7f020001;
+        public static final int drawer_shadow=0x7f020002;
+        public static final int frame_menu_background=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int ic_main_action_personal_normal=0x7f020005;
+        public static final int ic_main_action_personal_pressed=0x7f020006;
+        public static final int ic_person=0x7f020007;
+        public static final int round=0x7f020008;
+        public static final int selected_dot=0x7f020009;
+        public static final int shadow=0x7f02000a;
     }
     public static final class id {
-        public static final int action_person=0x7f040016;
-        public static final int action_settings=0x7f040015;
+        public static final int action_person=0x7f04001b;
+        public static final int action_settings=0x7f04001a;
         public static final int content=0x7f040008;
         public static final int frame_menu=0x7f040005;
-        public static final int frame_menu_background=0x7f040010;
+        public static final int frame_menu_background=0x7f040014;
         public static final int fullscreen=0x7f040003;
-        public static final int image=0x7f040011;
-        public static final int imageView1=0x7f040013;
-        public static final int item1=0x7f04000b;
-        public static final int item2=0x7f04000c;
-        public static final int item3=0x7f04000d;
-        public static final int item4=0x7f04000e;
-        public static final int item5=0x7f04000f;
+        public static final int galleryName=0x7f04000c;
+        public static final int gallery_conunt=0x7f04000b;
+        public static final int gallery_image=0x7f040018;
+        public static final int image=0x7f040015;
+        public static final int imageView1=0x7f040017;
+        public static final int item1=0x7f04000f;
+        public static final int item2=0x7f040010;
+        public static final int item3=0x7f040011;
+        public static final int item4=0x7f040012;
+        public static final int item5=0x7f040013;
         public static final int left=0x7f040000;
-        public static final int left_menu=0x7f04000a;
+        public static final int left_menu=0x7f04000e;
+        public static final int main_gallery=0x7f04000a;
         public static final int margin=0x7f040002;
-        public static final int menuFragmentLayout=0x7f040009;
+        public static final int menuFragmentLayout=0x7f04000d;
         public static final int right=0x7f040001;
+        public static final int scrollView1=0x7f040009;
         public static final int selected_view=0x7f040004;
-        public static final int slidingmenumain=0x7f040014;
-        public static final int text=0x7f040012;
+        public static final int slidingmenumain=0x7f040019;
+        public static final int text=0x7f040016;
         public static final int title=0x7f040007;
         public static final int user_info=0x7f040006;
     }
@@ -188,8 +196,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int frame_left_menu_item=0x7f030004;
         public static final int frame_menu=0x7f030005;
         public static final int frame_right_menu=0x7f030006;
-        public static final int menu=0x7f030007;
-        public static final int slidingmenumain=0x7f030008;
+        public static final int gallery_image=0x7f030007;
+        public static final int menu=0x7f030008;
+        public static final int slidingmenumain=0x7f030009;
     }
     public static final class menu {
         public static final int content=0x7f0b0000;

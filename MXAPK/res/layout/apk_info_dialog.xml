@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp" 
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/scrollview"
+        android:background="#ffffff" />
+
+    <ImageView
+        android:id="@+id/apk_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/linear"
+        android:padding="3dp" />
+
+    <TextView
+        android:id="@+id/apk_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/apk_icon"
+        android:layout_below="@+id/linear"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/apk_icon"
+        android:singleLine="true"
+        android:text="软件名:"
+        android:textColor="#000000"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/apk_name_single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/permission"
+        android:layout_alignTop="@+id/apk_name"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/apk_name"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/apk_name"
+        android:layout_below="@+id/apk_name"
+        android:layout_marginTop="3dp"
+        android:text="当前版本："
+        android:textColor="#000000"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/textView2"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="3dp"
+        android:text="软件大小："
+        android:textColor="#000000"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/textView3"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="3dp"
+        android:text="安装日期："
+        android:textColor="#000000"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/install_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/textView5"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/apk_icon"
+        android:layout_below="@+id/apk_icon"
+        android:layout_marginTop="8dp"
+        android:text="所需权限："
+        android:textColor="#000000"
+        android:textSize="13sp" />
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="230dp"
+        android:layout_height="190dp"
+        android:layout_alignLeft="@+id/textView7"
+        android:layout_below="@+id/textView7" >
+
+        <TextView
+            android:id="@+id/permission"
+            android:layout_width="230dp"
+            android:layout_height="150dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="11sp" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/scrollview"
+        android:layout_below="@+id/scrollview" >
+
+        <Button
+            android:id="@+id/open_button"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/info_button"
+            android:text="打开软件"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/more_button"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/info_button"
+            android:text="了解更多"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

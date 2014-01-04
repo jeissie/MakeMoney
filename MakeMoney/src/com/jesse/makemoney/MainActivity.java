@@ -27,7 +27,6 @@ public class MainActivity extends SlidingFragmentActivity implements SLMenuListO
 		super.onCreate(savedInstanceState);
 		setTitle("MakeMoney");
 		setContentView(R.layout.activity_main);
-		
 		//----------------------------------
 		//Title
 		//----------------------------------
@@ -65,6 +64,8 @@ public class MainActivity extends SlidingFragmentActivity implements SLMenuListO
 		selectItem(1, "热门资源");
 		
 	}
+	
+	
 	
 	@Override
 	public void onClick(View v) {

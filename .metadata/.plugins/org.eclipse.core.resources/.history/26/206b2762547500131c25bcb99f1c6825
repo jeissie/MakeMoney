@@ -1,0 +1,227 @@
+package com.jesse.makemoney;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+import com.jesse.fragment.FrameDistrict;
+import com.jesse.fragment.FrameHome;
+import com.jesse.gallery.AptechObject;
+import com.jesse.gallery.MyGallery;
+import com.jesse.gallery.PageAdapter;
+import com.jesse.gallery.Util;
+import com.jesse.model.GetImageOnMain;
+import com.jesse.slidingMenu.MenuFragment;
+import com.jesse.slidingMenu.MenuFragment.SLMenuListOnItemClickListener;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.LinearLayout.LayoutParams;
+
+public class MainActivity extends SlidingFragmentActivity implements SLMenuListOnItemClickListener , OnClickListener{
+	private SlidingMenu mSlidingMenu;  
+	private ImageButton framMenuButton;
+	private ImageButton userInfoButton;
+	private TextView titleName;
+	private MyGallery gallery;
+	private LinearLayout linearLayout;
+	private List<AptechObject> objects;
+	private TextView galleryName;
+	private boolean ifSetDot = true;
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setTitle("MakeMoney");
+		setContentView(R.layout.activity_main);
+		galleryName = (TextView) findViewById(R.id.galleryName);
+		//----------------------------------
+		//Title
+		//----------------------------------
+		framMenuButton = (ImageButton) findViewById(R.id.frame_menu);
+		userInfoButton = (ImageButton) findViewById(R.id.user_info);
+		titleName = (TextView) findViewById(R.id.title);
+		framMenuButton.setOnClickListener(this);
+		userInfoButton.setOnClickListener(this);
+		
+		//----------------------------------
+		//SlidingMenu	
+		//----------------------------------
+		setBehindContentView(R.layout.frame_menu);  		// 默认左侧可滑动区域布局
+		mSlidingMenu = getSlidingMenu(); 
+		mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);		// 触摸模式
+		mSlidingMenu.setMode(SlidingMenu.LEFT_RIGHT);			// 设置为可左右都滑动
+		
+		mSlidingMenu.setSecondaryMenu(R.layout.frame_right_menu);		// 右侧可滑动区域
+		mSlidingMenu.setSecondaryShadowDrawable(R.drawable.drawer_shadow);
+		
+		mSlidingMenu.setShadowDrawable(R.drawable.drawer_shadow);//设置阴影图片
+		mSlidingMenu.setShadowWidthRes(R.dimen.shadow_width);		// 阴影宽度	
+		
+		mSlidingMenu.setShadowDrawable(R.drawable.shadow);			// 阴影图片
+		mSlidingMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);		// 划开后的sliding宽度
+		mSlidingMenu.setFadeDegree(0.35f);
+		
+		//----------------------------------
+		//FragmentControler	
+		//----------------------------------
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+		fragmentTransaction.replace(R.id.left_menu, new MenuFragment());
+		fragmentTransaction.commit();
+		
+		selectItem(1, "热门资源");
+		
+	}
+	
+	/****** Gallery*******/
+	private void initGallery() throws FileNotFoundException, IOException {
+		gallery = (MyGallery) findViewById(R.id.main_gallery); 
+		
+		gallery.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+
+			}
+		});
+
+	
+		linearLayout = (LinearLayout) findViewById(R.id.gallery_conunt);
+
+		objects = Util.getContent(this);
+		if (objects != null) {
+			int count = objects.size();
+			if (count > 0) {
+				PageAdapter adapter = new PageAdapter(this, objects);
+				gallery.setAdapter(adapter);
+				gallery.setOnItemSelectedListener(selectedListener);
+				setDot(count);
+				ifSetDot = false;
+			}
+		}
+	}
+
+	/******* 动点 ********/
+	private void setDot(int count) {
+		for (int i = 0; i < count; i++) {
+			ImageView imageView = new ImageView(this);
+			if (i == 0) 
+			{
+				imageView.setBackgroundResource(R.drawable.selected_dot);
+			} else {
+				imageView.setBackgroundResource(R.drawable.round);
+			}
+			imageView.setId(i);
+			linearLayout.addView(imageView, LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT);
+
+		}
+	}
+
+	private void clearDot() {
+		int i = 0;
+		if (objects != null) {
+			while (i < objects.size()) {
+				ImageView image = (ImageView) linearLayout.findViewById((i)
+						% objects.size());
+				if (image != null) {
+					image.setBackgroundResource(R.drawable.round);
+				}
+				i++;
+			}
+		}
+
+	}
+
+	/******** gallery ѡ������� ********/
+	private OnItemSelectedListener selectedListener = new OnItemSelectedListener() {
+
+		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			
+			if (GetImageOnMain.getMainGalleryName(arg2 % objects.size()) != null) {
+				galleryName.setText(GetImageOnMain.getMainGalleryName(arg2
+						% objects.size()));
+			}
+			
+			ImageView imageView = (ImageView) linearLayout.findViewById(arg2
+					% objects.size());
+		
+			imageView.setBackgroundResource(R.drawable.selected_dot);
+	
+			ImageView imageLeft = (ImageView) linearLayout
+					.findViewById((arg2 - 1) % objects.size());
+			ImageView imageRight = (ImageView) linearLayout
+					.findViewById((arg2 + 1) % objects.size());
+	
+			if (imageLeft != null) {
+				imageLeft.setBackgroundResource(R.drawable.round);
+			}
+			if (imageRight != null) {
+				imageRight.setBackgroundResource(R.drawable.round);
+			}
+		}
+
+		public void onNothingSelected(AdapterView<?> arg0) {
+
+		}
+	};
+	
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.frame_menu:
+			toggle(); //动态判断自动关闭或开启SlidingMenu
+//          getSlidingMenu().showMenu();//显示SlidingMenu
+//          getSlidingMenu().showContent();//显示内容
+			break;
+			
+		case R.id.user_info:
+			if(mSlidingMenu.isSecondaryMenuShowing()){
+        		mSlidingMenu.showContent();
+        	}else{
+        		mSlidingMenu.showSecondaryMenu();
+        	}
+			break;
+		}
+		
+	}  
+    
+    @Override
+	public void selectItem(int position, String title) {  
+        Fragment fragment = null;    
+        switch (position) {    
+        case 1:    
+        	fragment = new FrameHome();
+            break;  
+        case 2:
+        	fragment = new FrameDistrict();
+        }    
+        
+        if (fragment != null) {    
+            FragmentManager fragmentManager = getSupportFragmentManager();  
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.content, fragment);
+            fragmentTransaction.addToBackStack(null);  
+            fragmentTransaction.commit();    
+            titleName.setText(title);
+            mSlidingMenu.showContent();  
+        } else {    
+            // error in creating fragment    
+            Log.e("MainActivity", "Error in creating fragment");    
+        }    
+    }
+}
+ 
