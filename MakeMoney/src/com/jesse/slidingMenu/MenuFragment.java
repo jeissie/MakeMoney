@@ -25,6 +25,8 @@ public class MenuFragment extends Fragment implements OnClickListener{
 	private LeftMenuFragmentItem item_4; 
 	private LeftMenuFragmentItem item_5; 
 	private ArrayList<LeftMenuFragmentItem> itemListArray;
+	private int position = 1;		// 按下的位置
+	private int nowPosition = 1;	// 前次按下位置	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,8 +62,6 @@ public class MenuFragment extends Fragment implements OnClickListener{
 	
 	@Override
 	public void onClick(View view) {
-		// TODO Auto-generated method stub
-		int position = 0;
 		switch (view.getId()) {
 			case R.id.item1:
 				position = 1;
@@ -81,12 +81,25 @@ public class MenuFragment extends Fragment implements OnClickListener{
 			default:
 				break;
 		}
-		Log.v("touch id is", "" + position);
+		// 重复点击相同按钮不响应
+		if (nowPosition == position) return;
+		nowPosition = position;
 		if (mCallback != null) {
 			mCallback.selectItem(position, mNavMenuTitles[position - 1]);
 		}
+		setMenuBeSelected();
 	}
 	
+	// 设置选择的item背景变化
+	private void setMenuBeSelected() {
+		
+		for (int i = 0; i < itemListArray.size(); i++) {
+			itemListArray.get(i).setUnSelected();
+		}
+		itemListArray.get(position - 1).setSelected();
+	}
+	
+	// 初始化item资源
 	private void setViewResource(View rootView) {  
 		
 		item_1 = (LeftMenuFragmentItem) rootView.findViewById(R.id.item1);
@@ -104,13 +117,13 @@ public class MenuFragment extends Fragment implements OnClickListener{
 		}
 		
         mNavMenuTitles = getResources().getStringArray(R.array.setting);    
-        // nav drawer icons from resources    
         mNavMenuIconsTypeArray = getResources().obtainTypedArray(R.array.nav_drawer_icons);    
         
         for (int i = 0; i < itemListArray.size(); i++) {
         	itemListArray.get(i).setImage(mNavMenuIconsTypeArray.getResourceId(i, -1));
         	itemListArray.get(i).setText(mNavMenuTitles[i]);
         }
+        itemListArray.get(0).setSelected();
     }  
 	/** 
      * 左侧菜单 点击回调接口 

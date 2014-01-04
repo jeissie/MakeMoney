@@ -2,7 +2,9 @@ package com.jesse.customLayout;
 
 import com.jesse.makemoney.R;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -13,6 +15,7 @@ public class LeftMenuFragmentItem extends RelativeLayout {
 
 	private ImageView imageView;
 	private TextView textView;
+	private RelativeLayout relativeLayout;
 	
 	public LeftMenuFragmentItem(Context context) {
 		super(context);
@@ -22,10 +25,11 @@ public class LeftMenuFragmentItem extends RelativeLayout {
 	public LeftMenuFragmentItem(Context context, AttributeSet attrs) {
         super(context, attrs);
         // TODO Auto-generated constructor stub
-        LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.frame_left_menu_item, this);
-        imageView=(ImageView) findViewById(R.id.image);
-        textView=(TextView)findViewById(R.id.text);
+        imageView = (ImageView) findViewById(R.id.image);
+        textView = (TextView)findViewById(R.id.text);
+        relativeLayout = (RelativeLayout) findViewById(R.id.frame_menu_background);
     }
 
 	public void setImage(int resId) {
@@ -34,5 +38,15 @@ public class LeftMenuFragmentItem extends RelativeLayout {
 	
 	public void setText(String text) {
 		textView.setText(text);
+	}
+	
+	@SuppressLint("ResourceAsColor")
+	public void setSelected() {
+		relativeLayout.setBackgroundColor(R.color.light_gray);
+	}
+	
+	@SuppressLint("ResourceAsColor")
+	public void setUnSelected() {
+		relativeLayout.setBackgroundColor(Color.TRANSPARENT);
 	}
 }
