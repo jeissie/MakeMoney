@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 应用分类:"
+                android:textColor="#101050"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/imagecomanger"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/apkcomanger" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#87b9ff"
+                    android:gravity="top"
+                    android:text="  系统安全"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#e1c8c0"
+                    android:gravity="top"
+                    android:text="  新闻阅读"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item3"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#dad38e"
+                    android:gravity="top"
+                    android:text="  地图导航"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item4"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#a2abc0"
+                    android:gravity="top"
+                    android:text="  快捷工具"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item5"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#b4da96"
+                    android:gravity="top"
+                    android:text="  办公理财"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item6"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#d3b796"
+                    android:gravity="top"
+                    android:text="  社交应用"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item7"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#aeb6a5"
+                    android:gravity="top"
+                    android:text="  生活购物"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item8"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#a5bb60"
+                    android:gravity="top"
+                    android:text="  主题美化"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item9"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#eebaa5"
+                    android:gravity="top"
+                    android:text="  图像处理"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item10"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#6399a5"
+                    android:gravity="top"
+                    android:text="  音乐视频"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:id="@+id/apk_item11"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#a7debc"
+                    android:gravity="top"
+                    android:text="  实用工具"
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="6dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#ffffff"
+                    android:gravity="top"
+                    android:text=" "
+                    android:textColor="#101034"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </TableRow>
+    </LinearLayout>
+
+</ScrollView>

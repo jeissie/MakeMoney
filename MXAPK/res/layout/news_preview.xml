@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+    <ImageView
+        android:id="@+id/title_image"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/title" 
+        android:scaleType="fitXY"/>
+
+    <Button
+        android:id="@+id/main_button"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:text="  主页"
+        android:textSize="12sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/top_back_0" />
+
+    <LinearLayout
+        android:layout_below="@+id/title_image" 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" 
+        android:background="#ffffff">
+
+        <TableRow
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="33dp">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:layout_weight="2.99"
+                android:gravity="center"
+                android:text="业界新闻"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="0.01"
+                android:background="#0099CC" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_weight="2.99"
+                android:gravity="center"
+                android:text="应用资讯"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="0.01"
+                android:background="#0099CC"/>
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_weight="2.99"
+                android:gravity="center"
+                android:text="硬件资讯"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="0.01"
+                android:background="#0099CC" />
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_weight="2.99"
+                android:gravity="center"
+                android:text="使用技巧"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="0.01"
+                android:background="#0099CC" />
+
+            <TextView
+                android:id="@+id/text5"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_weight="2.99"
+                android:gravity="center"
+                android:text="刷机教程"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="0.01"
+                android:background="#0099CC" />
+
+            <TextView
+                android:id="@+id/text6"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_weight="2.99"
+                android:gravity="center"
+                android:text="本站动态"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#DDDDDD" >
+
+            <ImageView
+                android:id="@+id/cursor"
+                android:layout_width="fill_parent"
+                android:layout_height="4dp"
+                android:layout_weight="3.4"
+                android:scaleType="fitXY"
+                android:src="#0099CC" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2.5dp"
+                android:layout_weight="3"
+                android:background="@null" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2.5dp"
+                android:layout_weight="3"
+                android:background="@null" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2.5dp"
+                android:layout_weight="3"
+                android:background="@null" />
+        </TableRow>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_content"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:flipInterval="30"
+            android:persistentDrawingCache="animation" />
+    </LinearLayout>
+
+</RelativeLayout>

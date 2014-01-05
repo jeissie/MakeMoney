@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="CutPasteId" severity="ignore" />
+    <issue id="HandlerLeak" severity="ignore" />
+    <issue id="SdCardPath">
+        <ignore path="src\com\getimageandtext\DownloadApk.java" />
+    </issue>
+    <issue id="ShowToast" severity="ignore" />
+</lint>

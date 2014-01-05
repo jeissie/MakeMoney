@@ -8,6 +8,7 @@
     <string name="title_activity_left_menu_fragment_item">LeftMenuFragmentItem</string>
     <string name="title_activity_content">Content</string>
     <string name="title_activity_frame_home">FrameHome</string>
-	<string name="person">个人中心</string>
-	
+    <string name="person">个人中心</string>
+    <string name="title_activity_frame_district">FrameDistrict</string>
+
 </resources>
