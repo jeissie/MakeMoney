@@ -10,5 +10,6 @@
     <string name="title_activity_frame_home">FrameHome</string>
     <string name="person">个人中心</string>
     <string name="title_activity_frame_district">FrameDistrict</string>
+    <string name="title_activity_loading_page">LoadingPage</string>
 
 </resources>

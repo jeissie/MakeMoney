@@ -1,0 +1,38 @@
+package com.jesse.gallery;
+
+import android.graphics.Bitmap;
+/**
+ * @author jie
+ *
+ */
+public class BitMapGroup {
+	//BitMap与图片描述文字
+	private Bitmap mainGalleryBitmap = null;
+	private String mainGalleryName = null;
+	
+	public BitMapGroup(Bitmap bitmap, String name) {
+		mainGalleryBitmap = bitmap;
+		mainGalleryName = name;
+	}
+
+	public BitMapGroup() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Bitmap getMainGalleryBitmap() {
+		return mainGalleryBitmap;
+	}
+
+	public void setMainGalleryBitmap(Bitmap mainGalleryBitmap) {
+		this.mainGalleryBitmap = mainGalleryBitmap;
+	}
+
+	public String getMainGalleryName() {
+		return mainGalleryName;
+	}
+
+	public void setMainGalleryName(String mainGalleryName) {
+		this.mainGalleryName = mainGalleryName;
+	}
+	
+}

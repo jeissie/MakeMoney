@@ -1,0 +1,6 @@
+package com.jesse.net;
+
+public interface DownloadImageComplete extends DownloadComplege{
+	@Override
+	public void complete();
+}

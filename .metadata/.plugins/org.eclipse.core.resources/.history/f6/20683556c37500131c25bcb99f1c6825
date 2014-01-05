@@ -1,0 +1,10 @@
+package com.jesse.net;
+
+public class NetService {
+	private DownloadImageComplete callBackComplete;
+	
+	public static void require(String requireDo, DownloadComplege callBack) {
+		//TODO download require
+		
+	}
+}

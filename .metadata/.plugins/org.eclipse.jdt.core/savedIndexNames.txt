@@ -2,14 +2,14 @@
 INDEX VERSION 1.126+E:\github_workspace\.metadata\.plugins\org.eclipse.jdt.core
 =======
 INDEX VERSION 1.126+/Users/jesse/Documents/AndroidWorkSpace/.metadata/.plugins/org.eclipse.jdt.core
-954967574.index
-1891541960.index
-574277388.index
-267663701.index
-3398107106.index
+799537129.index
 2040064081.index
 2119075206.index
+<<<<<<< HEAD
 3923690235.index
 1649303166.index
 3272576846.index
 >>>>>>> 85303d36fa0acd804b2fe3ec57b402c3331cfb86
+=======
+267663701.index
+>>>>>>> e81d9acfcc9a2052eb396ad1aefd96f0eef929b8

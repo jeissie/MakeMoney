@@ -48,13 +48,16 @@
             <com.jesse.customLayout.LeftMenuFragmentItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/right_menu_divider" />
+
             <com.jesse.customLayout.LeftMenuFragmentItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

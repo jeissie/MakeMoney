@@ -1,0 +1,10 @@
+package com.jesse.net;
+
+abstract class DownloadImageComplete implements DownloadComplege{
+
+	@Override
+	public void complete() {
+		// TODO Auto-generated method stub
+		
+	}
+}

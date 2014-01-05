@@ -1,0 +1,6 @@
+package com.jesse.net;
+
+abstract class DownloadImageComplete implements DownloadComplege{
+
+	
+}

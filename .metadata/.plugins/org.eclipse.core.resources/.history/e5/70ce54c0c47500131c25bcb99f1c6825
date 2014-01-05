@@ -1,0 +1,31 @@
+package com.jesse.net;
+
+import android.graphics.BitmapFactory;
+
+import com.jesse.makemoney.R;
+import com.jesse.model.GetImageOnMain;
+import com.jesse.util.ContextUtil;
+
+/**
+ * @author jesse
+ */
+public class NetService {
+	public static NetService service = null;
+	
+	public static NetService getInstance() {
+		if (service == null) {
+			service =  new NetService();
+		}
+		return service;
+	}
+	
+	public static void require(String requireDo, DownloadComplege callBack) {
+		//TODO download require then use callBack
+		
+		//TODO This is test. Then you should get the source from net. Use the source length to make the object!
+		for (int i = 0; i < 5; i++) {
+			GetImageOnMain.getInstance().initBitMapGroup(BitmapFactory.decodeResource(ContextUtil.getInstance().getResources(), R.drawable.bitmap1), "TestImage_" + i, "" + i);
+		}
+		callBack.complete();
+	}
+}

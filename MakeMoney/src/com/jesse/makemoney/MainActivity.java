@@ -62,11 +62,8 @@ public class MainActivity extends SlidingFragmentActivity implements SLMenuListO
 		fragmentTransaction.replace(R.id.left_menu, new MenuFragment());
 		fragmentTransaction.replace(R.id.right_menu_initid, new RightMenuFragment());
 		fragmentTransaction.commit();
-		
-		
-		
-		
-		selectItem(1, "鐑棬璧勬簮");
+
+		selectItem(1, "MakeMoney");
 		
 	}
 	

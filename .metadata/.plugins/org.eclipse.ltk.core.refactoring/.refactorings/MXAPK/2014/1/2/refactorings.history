@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;drawable&apos;&#x0A;- Original project: &apos;MXAPK&apos;&#x0A;- Destination element: &apos;drawable&apos;&#x0A;- Original elements:&#x0A;     out_alpha.xml&#x0A;     enter_alpha.xml" description="Copy files" element1="res/anim/out_alpha.xml" element2="res/anim/enter_alpha.xml" files="2" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1388886550224" target="/MakeMoney/res/drawable" units="0" version="1.0"/>
+</session>

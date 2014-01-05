@@ -1,0 +1,121 @@
+package com.jesse.model;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.Matrix;
+import android.os.Environment;
+import android.provider.CalendarContract.Instances;
+import android.util.Log;
+
+@SuppressLint("SdCardPath")
+public class GetImageOnMain {
+	public static GetImageOnMain instances = null;
+	
+	public GetImageOnMain getInstance() {
+		if (instances == null) {
+			instances = new GetImageOnMain();
+		}
+		return instances;
+	}
+	private  Bitmap[] mainGalleryBitmap = new Bitmap[5];
+	private  String[] mainGalleryName = new String[5];
+
+	private int screenWidth;
+
+	public int getScreenWidth() {
+		return screenWidth;
+	}
+
+	public void setScreenWidth(int screenWidth) {
+		screenWidth = screenWidth;
+	}
+
+	public static Bitmap getMain_galleryBitmap(int i) {
+		return mainGalleryBitmap[i];
+	}
+	
+	/*******设置BitMap********/
+	public static void setMain_galleryBitmap(int i, Bitmap main_galleryBitmap) {
+
+		if (main_galleryBitmap != null) {
+			GetImageOnMain.mainGalleryBitmap[i] = scaleMainImg(main_galleryBitmap);
+			inputImageToFileCache(1, i, GetImageOnMain.mainGalleryBitmap[i]);
+		}
+	}
+
+	public static void clearBitmap() {
+		GetImageOnMain.mainGalleryBitmap = null;
+	}
+
+	/*******设置BitMap配套文字********/
+	public static String getMainGalleryName(int i) {
+		return mainGalleryName[i];
+	}
+
+	public static void setMainGalleryName(int i, String mainGalleryName) {
+		GetImageOnMain.mainGalleryName[i] = mainGalleryName;
+	}
+
+	private static Bitmap scaleMainImg(Bitmap bm) {
+
+		int width = bm.getWidth();
+		int height = bm.getHeight();
+		double newWidth1 = screenWidth;
+		double newHeight1 = screenWidth / 2.24;
+		float scaleWidth = ((float) newWidth1) / width;
+		float scaleHeight = ((float) newHeight1) / height;
+		Matrix matrix = new Matrix();
+		matrix.postScale(scaleWidth, scaleHeight);
+		Bitmap newbm = Bitmap.createBitmap(bm, 0, 0, width, height, matrix,true);
+		return newbm;
+		
+	}
+
+	private static void inputImageToFileCache(int params, int position,
+			Bitmap image) {
+		if(Environment.MEDIA_MOUNTED.endsWith(Environment.getExternalStorageState())) { 
+			File file = new File("/sdcard/MakeMoney/cache");
+			if (!file.exists()) {
+				file.mkdir();
+			}
+			File imageFile = new File(file, "main" + position + ".jpg");
+			try {
+				imageFile.createNewFile();
+				FileOutputStream fos = new FileOutputStream(imageFile);
+				image.compress(CompressFormat.JPEG, 80, fos);
+				fos.flush();
+				fos.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			Log.v("permission error", "sd cards have not the permission to get mounted");
+		}
+	}
+
+	@SuppressLint("NewApi")
+	public BitMapGroup initBitMapGroup(Bitmap bitmap, String name) {
+		if(bitmap == null) return null;
+		scaleMainImg(bitmap);
+		inputImageToFileCache(1, i, GetImageOnMain.mainGalleryBitmap[i]);
+		BitMapGroup group = new BitMapGroup(bitmap, name);
+		return group;
+	}
+	
+	//BitMap与图片描述文字
+	public class BitMapGroup {
+		Bitmap mainGalleryBitmap;
+		String mainGalleryName;
+		public BitMapGroup(Bitmap bitmap, String name) {
+			mainGalleryBitmap = bitmap;
+			mainGalleryName = name;
+		}
+	}
+}

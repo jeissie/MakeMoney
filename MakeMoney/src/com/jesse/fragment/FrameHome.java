@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-import com.jesse.gallery.AptechObject;
+import com.jesse.gallery.BitMapGroup;
 import com.jesse.gallery.MyGallery;
 import com.jesse.gallery.PageAdapter;
 import com.jesse.gallery.Util;
@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class FrameHome extends Fragment {
 	private SLMenuListOnItemClickListener mCallback; 
 	private MyGallery gallery;
 	private LinearLayout linearLayout;
-	private List<AptechObject> objects;
+	private List<BitMapGroup> objects;
 	private TextView galleryName;
 	private boolean ifSetDot = true;
 	
@@ -57,9 +58,6 @@ public class FrameHome extends Fragment {
 	private void setViewResource(View rootView) {  
 		gallery = (MyGallery) rootView.findViewById(R.id.main_gallery);
 		linearLayout = (LinearLayout) rootView.findViewById(R.id.gallery_conunt);
-		for (int i = 0; i < 5; i++) {
-			GetImageOnMain.setMain_galleryBitmap(i, BitmapFactory.decodeResource(getResources(), R.drawable.bitmap1));
-		}
 		try {
 			initGallery();
 		} catch (FileNotFoundException e) {
@@ -88,7 +86,9 @@ public class FrameHome extends Fragment {
 				gallery.setOnItemSelectedListener(selectedListener);
 				setDot(count);
 				ifSetDot = false;
-			}
+			} 
+		} else {
+			Log.v("MakeMoney", "objects is null");
 		}
 	}
 
@@ -129,10 +129,9 @@ public class FrameHome extends Fragment {
 		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			
-			if (GetImageOnMain.getMainGalleryName(arg2 % objects.size()) != null) {
-				galleryName.setText(GetImageOnMain.getMainGalleryName(arg2
-						% objects.size()));
-			}
+//			if (GetImageOnMain.getInstance().getBitMapGroup().get(arg2 % objects.size()).getMainGalleryName() != null) {
+//				galleryName.setText(GetImageOnMain.getInstance().getBitMapGroup().get(arg2 % objects.size()).getMainGalleryName());
+//			}
 			
 			ImageView imageView = (ImageView) linearLayout.findViewById(arg2
 					% objects.size());
