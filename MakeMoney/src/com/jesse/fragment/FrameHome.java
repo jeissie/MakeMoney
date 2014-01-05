@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,11 +58,6 @@ public class FrameHome extends Fragment {
 	private void setViewResource(View rootView) {  
 		gallery = (MyGallery) rootView.findViewById(R.id.main_gallery);
 		linearLayout = (LinearLayout) rootView.findViewById(R.id.gallery_conunt);
-		
-		//TODO This is test. Then you should get the source from net. Use the source length to make the object!
-		for (int i = 0; i < 5; i++) {
-			GetImageOnMain.getInstance().initBitMapGroup(BitmapFactory.decodeResource(getResources(), R.drawable.bitmap1), "TestImage_" + i, "" + i);
-		}
 		try {
 			initGallery();
 		} catch (FileNotFoundException e) {
@@ -81,7 +77,7 @@ public class FrameHome extends Fragment {
 			}
 		});
 
-		objects = Util.getContent();
+		objects = Util.getContent(getActivity());
 		if (objects != null) {
 			int count = objects.size();
 			if (count > 0) {
@@ -91,6 +87,8 @@ public class FrameHome extends Fragment {
 				setDot(count);
 				ifSetDot = false;
 			} 
+		} else {
+			Log.v("MakeMoney", "objects is null");
 		}
 	}
 
@@ -131,9 +129,9 @@ public class FrameHome extends Fragment {
 		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			
-			if (GetImageOnMain.getInstance().getBitMapGroup().get(arg2 % objects.size()).getMainGalleryName() != null) {
+//			if (GetImageOnMain.getInstance().getBitMapGroup().get(arg2 % objects.size()).getMainGalleryName() != null) {
 //				galleryName.setText(GetImageOnMain.getInstance().getBitMapGroup().get(arg2 % objects.size()).getMainGalleryName());
-			}
+//			}
 			
 			ImageView imageView = (ImageView) linearLayout.findViewById(arg2
 					% objects.size());

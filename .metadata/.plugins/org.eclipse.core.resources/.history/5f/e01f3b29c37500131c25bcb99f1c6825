@@ -1,0 +1,5 @@
+package com.jesse.net;
+
+public interface DownloadImageComplete extends DownloadComplege{
+	public void reloadedImage();
+}

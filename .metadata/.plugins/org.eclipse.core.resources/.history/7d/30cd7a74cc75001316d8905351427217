@@ -1,0 +1,5 @@
+package com.jesse.util;
+
+public class MakeMoneyDefine {
+	public static string galleryFilePatch = "/MakeMoney/cache/";
+}

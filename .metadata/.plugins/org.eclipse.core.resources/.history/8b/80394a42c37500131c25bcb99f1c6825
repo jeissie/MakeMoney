@@ -1,0 +1,9 @@
+package com.jesse.net;
+
+public class NetService {
+	private DownloadImageComplete callBackComplete;
+	
+	public static void require() {
+		
+	}
+}
