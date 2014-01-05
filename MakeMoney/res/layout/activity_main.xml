@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:background="#547858" >
 
         <ImageButton
@@ -32,10 +32,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/frame_menu"
             android:text="MakeMoney"
             android:textColor="#ffffff"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
     </RelativeLayout>
     

@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.context.ContextUtil;
 import com.jesse.model.GetImageOnMain;
+import com.jesse.util.ContextUtil;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -20,110 +20,35 @@ import android.provider.MediaStore;
 public class Util {
 
 	@SuppressWarnings("unused")
-	public static List<AptechObject> getContent(Context context)
+	public static List<BitMapGroup> getContent()
 			throws FileNotFoundException, IOException {
+		
+		List<BitMapGroup> objects = new ArrayList<BitMapGroup>();
 
-		List<AptechObject> objects = new ArrayList<AptechObject>();
-
-		File file = new File("/sdcard/MakeMoney/cache");
-		if (!file.exists()) {
-			return null;
-		} else {
 			/***** 读取文件 ******/
-			if (GetImageOnMain.getMain_galleryBitmap(4) == null) { 
-				/***** 读取缓存文件 ******/
-				if (new File(Environment.getExternalStorageDirectory()
-						+ "/MxApk/cache/main4.jpg") != null) {
-					for (int i = 0; i < 5; i++) {
-						AptechObject accp = new AptechObject();
-						String fileName = "/MxApk/cache/main" + i + ".jpg";
-						File temp = new File(
-								Environment.getExternalStorageDirectory()
-										+ fileName);
-						if (temp != null) {
-							Bitmap bitmap = MediaStore.Images.Media.getBitmap(
-									ContextUtil.getInstance()
-											.getContentResolver(), Uri
-											.fromFile(temp));
-							accp.setObjphoto(bitmap);
-							objects.add(accp);
-						} else {
-							objects = null;
-						}
+		if (GetImageOnMain.getInstance().getBitMapGroup() == null) { // 文件还未开始下载或者下载正在下载中
+			/***** 读取缓存文件 ******/
+			// TODO 读取数量应从网络获得
+			for (int i = 0; i < 5; i++) {
+				String fileName = "/MakeMoney/cache/main" + i + ".jpg";
+				if (new File(Environment.getExternalStorageDirectory() + fileName) != null) {
+					BitMapGroup accp = new BitMapGroup();
+					File temp = new File(
+							Environment.getExternalStorageDirectory() + fileName);
+					if (temp != null) {
+						Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+								ContextUtil.getInstance().getContentResolver(), Uri.fromFile(temp));
+						accp.setMainGalleryBitmap(bitmap);
+						objects.add(accp);
+					} else {
+						objects = null;
 					}
-					return objects;
-				} else {
-					/****** 下载文件 ******/
-					AptechObject accp1 = new AptechObject();
-					Bitmap bitmap1 = GetImageOnMain.getMain_galleryBitmap(0);
-					if (bitmap1 != null) {
-						accp1.setObjphoto(bitmap1);
-						objects.add(accp1);
-					}
-					AptechObject accp2 = new AptechObject();
-					Bitmap bitmap2 = GetImageOnMain.getMain_galleryBitmap(1);
-					if (bitmap2 != null) {
-						accp2.setObjphoto(bitmap2);
-						objects.add(accp2);
-					}
-					AptechObject accp3 = new AptechObject();
-					Bitmap bitmap3 = GetImageOnMain.getMain_galleryBitmap(2);
-					if (bitmap3 != null) {
-						accp3.setObjphoto(bitmap3);
-						objects.add(accp3);
-					}
-					AptechObject accp4 = new AptechObject();
-					Bitmap bitmap4 = GetImageOnMain.getMain_galleryBitmap(3);
-					if (bitmap4 != null) {
-						accp4.setObjphoto(bitmap4);
-						objects.add(accp4);
-					}
-					AptechObject accp5 = new AptechObject();
-					Bitmap bitmap5 = GetImageOnMain.getMain_galleryBitmap(4);
-					if (bitmap5 != null) {
-						accp5.setObjphoto(bitmap5);
-						objects.add(accp5);
-					}
-					GetImageOnMain.clearBitmap();
-					return objects;
 				}
-
-			} else {
-				/****** ��ȡ����ͼƬ ******/
-				AptechObject accp1 = new AptechObject();
-				Bitmap bitmap1 = GetImageOnMain.getMain_galleryBitmap(0);
-				if (bitmap1 != null) {
-					accp1.setObjphoto(bitmap1);
-					objects.add(accp1);
-				}
-				AptechObject accp2 = new AptechObject();
-				Bitmap bitmap2 = GetImageOnMain.getMain_galleryBitmap(1);
-				if (bitmap2 != null) {
-					accp2.setObjphoto(bitmap2);
-					objects.add(accp2);
-				}
-				AptechObject accp3 = new AptechObject();
-				Bitmap bitmap3 = GetImageOnMain.getMain_galleryBitmap(2);
-				if (bitmap3 != null) {
-					accp3.setObjphoto(bitmap3);
-					objects.add(accp3);
-				}
-				AptechObject accp4 = new AptechObject();
-				Bitmap bitmap4 = GetImageOnMain.getMain_galleryBitmap(3);
-				if (bitmap4 != null) {
-					accp4.setObjphoto(bitmap4);
-					objects.add(accp4);
-				}
-				AptechObject accp5 = new AptechObject();
-				Bitmap bitmap5 = GetImageOnMain.getMain_galleryBitmap(4);
-				if (bitmap5 != null) {
-					accp5.setObjphoto(bitmap5);
-					objects.add(accp5);
-				}
-				GetImageOnMain.clearBitmap();
 				return objects;
-			}
-		} 
-
-	}
+			} 
+		} else {
+			return GetImageOnMain.getInstance().getBitMapGroup();
+		}
+		return objects;
+	} 
 }

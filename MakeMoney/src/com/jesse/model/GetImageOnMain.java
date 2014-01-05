@@ -4,91 +4,84 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jesse.gallery.BitMapGroup;
+import com.jesse.util.MyView;
+
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Matrix;
+import android.os.Environment;
 import android.util.Log;
 
 @SuppressLint("SdCardPath")
 public class GetImageOnMain {
-
-	private static Bitmap[] mainGalleryBitmap = new Bitmap[5];
-	private static String[] mainGalleryName = new String[5];
-
-	private static int screenWidth;
-
-	public int getScreenWidth() {
-		return screenWidth;
-	}
-
-	public void setScreenWidth(int screenWidth) {
-		GetImageOnMain.screenWidth = screenWidth;
-	}
-
-	public static Bitmap getMain_galleryBitmap(int i) {
-		return mainGalleryBitmap[i];
-	}
-
-	public static void setMain_galleryBitmap(int i, Bitmap main_galleryBitmap) {
-
-		if (main_galleryBitmap != null) {
-			GetImageOnMain.mainGalleryBitmap[i] = scaleMainImg(main_galleryBitmap);
-			inputImageToFileCache(1, i, GetImageOnMain.mainGalleryBitmap[i]);
+	public static GetImageOnMain instances = null;
+	private List<BitMapGroup> objects = new ArrayList<BitMapGroup>();
+	
+	public static GetImageOnMain getInstance() {
+		if (instances == null) {
+			instances = new GetImageOnMain();
 		}
+		return instances;
 	}
 
-	public static void clearBitmap() {
-		GetImageOnMain.mainGalleryBitmap = null;
+	/*******设置BitMap与其配套文字********/
+	@SuppressLint("NewApi")
+	public List<BitMapGroup> initBitMapGroup(Bitmap bitmap, String name, String imagePathName) {
+		if(bitmap == null) return null;
+		Bitmap imageBitmap = scaleMainImg(bitmap);
+		inputImageToFileCache(imageBitmap, imagePathName);
+		BitMapGroup group = new BitMapGroup(bitmap, name);
+		objects.add(group);
+		return objects;
+	}
+	
+	@SuppressLint("NewApi")
+	public List<BitMapGroup> getBitMapGroup() {
+		return objects;
 	}
 
-	public static String getMainGalleryName(int i) {
-		return mainGalleryName[i];
-	}
-
-	public static void setMainGalleryName(int i, String mainGalleryName) {
-		GetImageOnMain.mainGalleryName[i] = mainGalleryName;
-	}
-
-	private static Bitmap scaleMainImg(Bitmap bm) {
+	/********缩放Bitmap与屏幕适配**********/
+	private Bitmap scaleMainImg(Bitmap bm) {
 
 		int width = bm.getWidth();
 		int height = bm.getHeight();
-		double newWidth1 = screenWidth;
-		double newHeight1 = screenWidth / 2.24;
+		double newWidth1 = MyView.getScreenWidth();
+		double newHeight1 = MyView.getScreenWidth() / 2.24;
 		float scaleWidth = ((float) newWidth1) / width;
 		float scaleHeight = ((float) newHeight1) / height;
 		Matrix matrix = new Matrix();
 		matrix.postScale(scaleWidth, scaleHeight);
-		if (width > 0 && height > 0) {
-//			Bitmap newbm = Bitmap.createBitmap(bm, 0, 0, 320, 200, matrix,true);
-			return bm;
-		} else {
-			Log.v("Alert !! ", "Bitmap is null");
-			return bm;
-		}
+		Bitmap newbm = Bitmap.createBitmap(bm, 0, 0, width, height, matrix,true);
+		return newbm;
 		
 	}
 
-	private static void inputImageToFileCache(int params, int position,
-			Bitmap image) {
-		File file = new File("/sdcard/MakeMoney/cache");
-		if (!file.exists()) {
-			file.mkdir();
+	/********存储BitMap到Sd**********/
+	private static void inputImageToFileCache(Bitmap image, String imagePathName) {
+		if(Environment.MEDIA_MOUNTED.endsWith(Environment.getExternalStorageState())) { 
+			File file = new File("/sdcard/MakeMoney/cache");
+			if (!file.exists()) {
+				file.mkdir();
+			}
+			File imageFile = new File(file, "main" + imagePathName + ".jpg");
+			try {
+				imageFile.createNewFile();
+				FileOutputStream fos = new FileOutputStream(imageFile);
+				image.compress(CompressFormat.JPEG, 80, fos);
+				fos.flush();
+				fos.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			Log.v("permission error", "sd cards have not the permission to get mounted");
 		}
-		File imageFile = new File(file, "main" + position + ".jpg");
-		try {
-			imageFile.createNewFile();
-			FileOutputStream fos = new FileOutputStream(imageFile);
-			image.compress(CompressFormat.JPEG, 80, fos);
-			fos.flush();
-			fos.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
 	}
-
 }

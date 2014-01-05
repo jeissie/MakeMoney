@@ -1,0 +1,86 @@
+package com.jesse.model;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jesse.gallery.BitMapGroup;
+
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.Matrix;
+import android.os.Environment;
+import android.util.Log;
+
+@SuppressLint("SdCardPath")
+public class GetImageOnMain {
+	public static GetImageOnMain instances = null;
+	private List<BitMapGroup> objects = new ArrayList<BitMapGroup>();
+	
+	public static GetImageOnMain getInstance() {
+		if (instances == null) {
+			instances = new GetImageOnMain();
+		}
+		return instances;
+	}
+
+	/*******设置BitMap与其配套文字********/
+	@SuppressLint("NewApi")
+	public List<BitMapGroup> initBitMapGroup(Bitmap bitmap, String name, String imagePathName) {
+		if(bitmap == null) return null;
+		Bitmap imageBitmap = scaleMainImg(bitmap);
+		inputImageToFileCache(imageBitmap, imagePathName);
+		BitMapGroup group = new BitMapGroup(bitmap, name);
+		objects.add(group);
+		return objects;
+	}
+	
+	@SuppressLint("NewApi")
+	public List<BitMapGroup> getBitMapGroup() {
+		return objects;
+	}
+
+	/********缩放Bitmap与屏幕适配**********/
+	private Bitmap scaleMainImg(Bitmap bm) {
+
+		int width = bm.getWidth();
+		int height = bm.getHeight();
+		double newWidth1 = screenWidth;
+		double newHeight1 = screenWidth / 2.24;
+		float scaleWidth = ((float) newWidth1) / width;
+		float scaleHeight = ((float) newHeight1) / height;
+		Matrix matrix = new Matrix();
+		matrix.postScale(scaleWidth, scaleHeight);
+		Bitmap newbm = Bitmap.createBitmap(bm, 0, 0, width, height, matrix,true);
+		return newbm;
+		
+	}
+
+	/********存储BitMap到Sd**********/
+	private static void inputImageToFileCache(Bitmap image, String imagePathName) {
+		if(Environment.MEDIA_MOUNTED.endsWith(Environment.getExternalStorageState())) { 
+			File file = new File("/sdcard/MakeMoney/cache");
+			if (!file.exists()) {
+				file.mkdir();
+			}
+			File imageFile = new File(file, "main" + imagePathName + ".jpg");
+			try {
+				imageFile.createNewFile();
+				FileOutputStream fos = new FileOutputStream(imageFile);
+				image.compress(CompressFormat.JPEG, 80, fos);
+				fos.flush();
+				fos.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			Log.v("permission error", "sd cards have not the permission to get mounted");
+		}
+	}
+}
