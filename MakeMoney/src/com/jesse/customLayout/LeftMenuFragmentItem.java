@@ -29,7 +29,7 @@ public class LeftMenuFragmentItem extends RelativeLayout {
         inflater.inflate(R.layout.frame_left_menu_item, this);
         imageView = (ImageView) findViewById(R.id.image);
         textView = (TextView)findViewById(R.id.text);
-        relativeLayout = (RelativeLayout) findViewById(R.id.frame_menu_background);
+        relativeLayout = (RelativeLayout)findViewById(R.id.frame_menu_background);
     }
 
 	public void setImage(int resId) {
