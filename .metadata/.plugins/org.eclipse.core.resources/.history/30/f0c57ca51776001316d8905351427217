@@ -24,6 +24,8 @@ public class MyGallery extends Gallery {
 		timer.schedule(task, 5000, 5000);
 	}
 
+	
+
 	public void setGestureDetector(GestureDetector gestureDetector) {
 		this.gestureDetector = gestureDetector;
 	}
