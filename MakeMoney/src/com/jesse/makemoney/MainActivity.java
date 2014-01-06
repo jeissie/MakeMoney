@@ -65,6 +65,7 @@ public class MainActivity extends SlidingFragmentActivity implements SLMenuListO
 
 		selectItem(1, "MakeMoney");
 		
+		
 	}
 	
 	
