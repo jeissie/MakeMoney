@@ -11,6 +11,7 @@ import com.jesse.gallery.Util;
 import com.jesse.makemoney.R;
 import com.jesse.model.GetImageOnMain;
 import com.jesse.slidingMenu.MenuFragment.SLMenuListOnItemClickListener;
+import com.jesse.util.MyView;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -57,6 +58,7 @@ public class FrameHome extends Fragment {
 	
 	private void setViewResource(View rootView) {  
 		gallery = (MyGallery) rootView.findViewById(R.id.main_gallery);
+		galleryName = (TextView) rootView.findViewById(R.id.galleryName);
 		linearLayout = (LinearLayout) rootView.findViewById(R.id.gallery_conunt);
 		try {
 			initGallery();
@@ -88,7 +90,7 @@ public class FrameHome extends Fragment {
 				ifSetDot = false;
 			} 
 		} else {
-			Log.v("MakeMoney", "objects is null");
+			MyView.Error("objects is null");
 		}
 	}
 
@@ -112,8 +114,7 @@ public class FrameHome extends Fragment {
 		int i = 0;
 		if (objects != null) {
 			while (i < objects.size()) {
-				ImageView image = (ImageView) linearLayout.findViewById((i)
-						% objects.size());
+				ImageView image = (ImageView) linearLayout.findViewById((i) % objects.size());
 				if (image != null) {
 					image.setBackgroundResource(R.drawable.round);
 				}
@@ -128,10 +129,6 @@ public class FrameHome extends Fragment {
 
 		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
-			
-//			if (GetImageOnMain.getInstance().getBitMapGroup().get(arg2 % objects.size()).getMainGalleryName() != null) {
-//				galleryName.setText(GetImageOnMain.getInstance().getBitMapGroup().get(arg2 % objects.size()).getMainGalleryName());
-//			}
 			
 			ImageView imageView = (ImageView) linearLayout.findViewById(arg2
 					% objects.size());

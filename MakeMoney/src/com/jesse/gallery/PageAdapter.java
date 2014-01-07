@@ -3,6 +3,7 @@ package com.jesse.gallery;
 import java.util.List;
 
 import com.jesse.makemoney.R;
+import com.jesse.makemoney.R.id;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PageAdapter extends BaseAdapter{
 
@@ -42,6 +44,8 @@ public class PageAdapter extends BaseAdapter{
 			BitMapGroup object = objects.get(position % objects.size());
 			ImageView objphoto = (ImageView) view.findViewById(R.id.gallery_image);
 			objphoto.setImageBitmap(object.getMainGalleryBitmap());
+			TextView textView = (TextView) view.findViewById(R.id.galleryName);
+			textView.setText(object.getMainGalleryName());
 		}
 		return view;
 	}

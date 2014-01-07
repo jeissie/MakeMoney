@@ -8,7 +8,7 @@ import android.graphics.Bitmap;
 //BitMap与图片描述文字
 public class BitMapGroup {
 	private Bitmap mainGalleryBitmap = null;
-	private String mainGalleryName = null;
+	private String mainGalleryName = "";
 	
 	public BitMapGroup(Bitmap bitmap, String name) {
 		mainGalleryBitmap = bitmap;
@@ -31,8 +31,8 @@ public class BitMapGroup {
 		return mainGalleryName;
 	}
 
-	public void setMainGalleryName(String mainGalleryName) {
-		this.mainGalleryName = mainGalleryName;
+	public void setMainGalleryName(String name) {
+		this.mainGalleryName = name;
 	}
 	
 }

@@ -42,7 +42,7 @@ public class MyGallery extends Gallery {
 	}
 	private boolean isScrollingLeft(MotionEvent e1, MotionEvent e2) { 
 		if(e2.getX() - e1.getX() > 10) {
-		   return true;
+		   return false;
 		} else {
 			return false;
 		}

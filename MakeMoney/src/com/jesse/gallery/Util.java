@@ -64,6 +64,8 @@ public class Util {
 					e.printStackTrace();
 				}
 				accp.setMainGalleryBitmap(bitmap);
+				// TODO 此处的文字应该从本地保存获取
+				accp.setMainGalleryName("TestImage" + i);
 				objects.add(accp);
 			} else {
 				//TODO 下载图片文件

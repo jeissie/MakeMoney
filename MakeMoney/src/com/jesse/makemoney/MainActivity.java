@@ -64,6 +64,7 @@ public class MainActivity extends SlidingFragmentActivity implements SLMenuListO
 		fragmentTransaction.commit();
 
 		selectItem(1, "MakeMoney");
+		
 	}
 	
 	

@@ -20,4 +20,8 @@ public class MyView {
 	public static void message(String text) {
 		Log.v("MakeMoeny Message !!!", text);
 	}
+	
+	public static void message(int text) {
+		Log.v("MakeMoeny Message !!!", "" + text);
+	}
 }
