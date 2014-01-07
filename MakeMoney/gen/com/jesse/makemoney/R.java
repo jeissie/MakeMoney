@@ -164,8 +164,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class id {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         public static final int action_person=0x7f040026;
         public static final int action_settings=0x7f040025;
+=======
+        public static final int action_person=0x7f040028;
+        public static final int action_settings=0x7f040027;
+>>>>>>> Stashed changes
+=======
+        public static final int action_person=0x7f040028;
+        public static final int action_settings=0x7f040027;
+>>>>>>> Stashed changes
 =======
         public static final int action_person=0x7f040028;
         public static final int action_settings=0x7f040027;
@@ -185,9 +195,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int item5=0x7f040015;
         public static final int left=0x7f040000;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         public static final int left_menu=0x7f04000e;
         public static final int listView=0x7f040023;
         public static final int main_gallery=0x7f04000b;
+=======
+        public static final int left_menu=0x7f040010;
+        public static final int listView=0x7f040025;
+        public static final int main_gallery=0x7f04000d;
+>>>>>>> Stashed changes
+=======
+        public static final int left_menu=0x7f040010;
+        public static final int listView=0x7f040025;
+        public static final int main_gallery=0x7f04000d;
+>>>>>>> Stashed changes
 =======
         public static final int left_menu=0x7f040010;
         public static final int listView=0x7f040025;
@@ -210,8 +232,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int scrollView1=0x7f04000c;
         public static final int selected_view=0x7f040004;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         public static final int slidingmenumain=0x7f040024;
         public static final int text=0x7f040016;
+=======
+        public static final int slidingmenumain=0x7f040026;
+        public static final int text=0x7f040018;
+>>>>>>> Stashed changes
+=======
+        public static final int slidingmenumain=0x7f040026;
+        public static final int text=0x7f040018;
+>>>>>>> Stashed changes
 =======
         public static final int slidingmenumain=0x7f040026;
         public static final int text=0x7f040018;
