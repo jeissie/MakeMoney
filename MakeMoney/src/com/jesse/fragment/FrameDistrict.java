@@ -26,6 +26,7 @@ import android.widget.ListView;
 public class FrameDistrict extends Fragment {
 	private SLMenuListOnItemClickListener mCallback;
 	private View rootView;
+	private LayoutInflater inflater;
 	private PagerTitleStrip pagerTitleStrip;// viewpager的标题
 	private PagerTabStrip pagerTabStrip;// 一个viewpager的指示器，效果就是一个横的粗的下划线
 	private ListView view1, view2, view3; // 需要滑动的页卡
@@ -36,6 +37,7 @@ public class FrameDistrict extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		this.inflater = inflater;
 		rootView = inflater.inflate(R.layout.frame_district, container, false);
 		setViewResource();
 		return rootView;
@@ -56,7 +58,7 @@ public class FrameDistrict extends Fragment {
 		pagerTabStrip = (PagerTabStrip) rootView.findViewById(R.id.pagertab);
 		pagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.blue));
 		pagerTabStrip.setDrawFullUnderline(false);
-		pagerTabStrip.setBackgroundColor(getResources().getColor(Color.WHITE));
+		pagerTabStrip.setBackgroundColor(getResources().getColor(R.color.white));
 		pagerTabStrip.setTextSpacing(50);
 		InitViewPager();
 	}
@@ -64,10 +66,9 @@ public class FrameDistrict extends Fragment {
 	private void InitViewPager() {
 		paper_content = (ViewPager) rootView.findViewById(R.id.viewpager);
 		listViews = new ArrayList<View>();
-		LayoutInflater mInflater = (getActivity()).getLayoutInflater();
-		listViews.add(mInflater.inflate(R.id.listView, null));
-		listViews.add(mInflater.inflate(R.id.listView, null));
-		listViews.add(mInflater.inflate(R.id.listView, null));
+		listViews.add(inflater.inflate(R.layout.listview, null));
+		listViews.add(inflater.inflate(R.layout.listview, null));
+		listViews.add(inflater.inflate(R.layout.listview, null));
 
 		paper_content.setAdapter(new MyPagerAdapter(listViews));
 		paper_content.setCurrentItem(0);

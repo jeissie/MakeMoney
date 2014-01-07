@@ -1,2 +1,5 @@
 #ignore these files
 .metadata/*
+*.class
+MakeMoney/bin/*
+MakeMoney/gen/*

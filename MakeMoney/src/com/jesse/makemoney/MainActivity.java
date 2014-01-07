@@ -42,7 +42,7 @@ public class MainActivity extends SlidingFragmentActivity implements SLMenuListO
 		//----------------------------------
 		setBehindContentView(R.layout.frame_menu);  		// 榛樿宸︿晶鍙粦鍔ㄥ尯鍩熷竷灞�
 		mSlidingMenu = getSlidingMenu(); 
-		mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);		// 瑙︽懜妯″紡
+		mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);		// 瑙︽懜妯″紡
 		mSlidingMenu.setMode(SlidingMenu.LEFT_RIGHT);			// 璁剧疆涓哄彲宸﹀彸閮芥粦鍔�
 		
 		mSlidingMenu.setSecondaryMenu(R.layout.frame_right_menu_init);		// 鍙充晶鍙粦鍔ㄥ尯鍩�
