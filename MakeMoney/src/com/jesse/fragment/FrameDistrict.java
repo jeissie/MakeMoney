@@ -31,9 +31,8 @@ public class FrameDistrict extends Fragment {
 	private PagerTabStrip pagerTabStrip;// 一个viewpager的指示器，效果就是一个横的粗的下划线
 	private ListView view1, view2, view3; // 需要滑动的页卡
 	private ViewPager paper_content;
-	private List<View> listViews;
-
-	// 首次绘制用户界面的回调方法，必须返回要创建的Fragments 视图UI
+	
+ 	// 首次绘制用户界面的回调方法，必须返回要创建的Fragments 视图UI
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -65,21 +64,36 @@ public class FrameDistrict extends Fragment {
 
 	private void InitViewPager() {
 		paper_content = (ViewPager) rootView.findViewById(R.id.viewpager);
-		listViews = new ArrayList<View>();
+		List<View> listViews = new ArrayList<View>();	// view container
+		List<ListView> listPage = new ArrayList<ListView>();	// every page in ViewPager
+		List<String> everyPageTitle = new ArrayList<String>();	
+		
 		listViews.add(inflater.inflate(R.layout.listview, null));
 		listViews.add(inflater.inflate(R.layout.listview, null));
 		listViews.add(inflater.inflate(R.layout.listview, null));
 
-		paper_content.setAdapter(new MyPagerAdapter(listViews));
+		listPage.add(view1);
+		listPage.add(view2);
+		listPage.add(view3);
+		
+		everyPageTitle.add("Title 1");
+		everyPageTitle.add("Title 2");
+		everyPageTitle.add("Title 3");
+		
+		paper_content.setAdapter(new MyPagerAdapter(listViews, listPage, everyPageTitle));
 		paper_content.setCurrentItem(0);
 		// paper_content.setOnPageChangeListener(new MyOnPageChangeListener());
 	}
 
 	public class MyPagerAdapter extends PagerAdapter {
-		public List<View> mListViews;
+		private List<View> mListViews;
+		private List<ListView> mListPage;
+		private List<String> mEveryPageTitle;
 
-		public MyPagerAdapter(List<View> mListViews) {
-			this.mListViews = mListViews;
+		public MyPagerAdapter(List<View> listViews, List<ListView> listPage, List<String> everyPageTitle) {
+			this.mListViews = listViews;
+			this.mListPage = listPage;
+			this.mEveryPageTitle = everyPageTitle;
 		}
 
 		@Override
@@ -93,11 +107,10 @@ public class FrameDistrict extends Fragment {
 			return mListViews.size();
 		}
 
-//		@Override
-//		public CharSequence getPageTitle(int position) {
-//			return pagerTabStrip.g
-////			return titleList.get(position);// 直接用适配器来完成标题的显示，所以从上面可以看到，我们没有使用PagerTitleStrip。当然你可以使用。
-//		}
+		@Override
+		public CharSequence getPageTitle(int position) {
+			return (mEveryPageTitle.size() > position) ? mEveryPageTitle.get(position) : "";  
+		}
 
 		@Override
 		public boolean isViewFromObject(View arg0, Object arg1) {
@@ -116,47 +129,22 @@ public class FrameDistrict extends Fragment {
 		}
 
 		@Override
-		// 实例化item
+		// 根据postion来实例化item
 		public Object instantiateItem(View arg0, int position) {
 			if (position < 4) {
 				((ViewPager) arg0).addView(
-						mListViews.get(position % listViews.size()), 0);
+						mListViews.get(position % mListViews.size()), 0);
 			}
+			ListView everyView = mListPage.get(position);
+			everyView = (ListView) rootView.findViewById(R.id.listView);
+			everyView.setOnItemClickListener(new OnItemClickListener() {
+				@Override
+				public void onItemClick(AdapterView<?> arg0, View arg1,
+						int arg2, long arg3) {
 
-			if (position == 1) {
-				view1 = (ListView) rootView.findViewById(R.id.listView);
-				view1.setOnItemClickListener(new OnItemClickListener() {
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
+				}
 
-					}
-
-				});
-
-			}
-			if (position == 2) {
-				view2 = (ListView) rootView.findViewById(R.id.listView);
-				view2.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-					}
-
-				});
-			}
-			if (position == 3) {
-				view3 = (ListView) rootView.findViewById(R.id.listView);
-				view3.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-					}
-
-				});
-			}
+			});
 			return position;
 		}
 	}
