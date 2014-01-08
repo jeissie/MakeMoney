@@ -2,10 +2,10 @@ package com.jesse.makemoney;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+import com.jesse.dao.FrameMenu.SLMenuListOnItemClickListener;
 import com.jesse.fragment.FrameDistrict;
 import com.jesse.fragment.FrameHome;
 import com.jesse.slidingMenu.MenuFragment;
-import com.jesse.slidingMenu.MenuFragment.SLMenuListOnItemClickListener;
 import com.jesse.slidingMenu.RightMenuFragment;
 
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.jesse.net;
+package com.jesse.server;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;

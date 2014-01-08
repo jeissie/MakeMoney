@@ -2,6 +2,7 @@ package com.jesse.slidingMenu;
 
 import java.util.ArrayList;
 import com.jesse.customLayout.LeftMenuFragmentItem;
+import com.jesse.dao.FrameMenu.SLMenuListOnItemClickListener;
 import com.jesse.makemoney.R;
 import android.os.Bundle;
 import android.app.Activity;
@@ -128,7 +129,4 @@ public class MenuFragment extends Fragment implements OnClickListener{
 	/** 
      * 左侧菜单 点击回调接口 
      */  
-	public interface SLMenuListOnItemClickListener{  
-        public void selectItem(int position,String title);  
-    }
 }

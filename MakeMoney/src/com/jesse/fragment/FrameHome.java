@@ -4,13 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
+import com.jesse.dao.FrameMenu.SLMenuListOnItemClickListener;
 import com.jesse.gallery.BitMapGroup;
 import com.jesse.gallery.MyGallery;
 import com.jesse.gallery.PageAdapter;
 import com.jesse.gallery.Util;
 import com.jesse.makemoney.R;
 import com.jesse.model.GetImageOnMain;
-import com.jesse.slidingMenu.MenuFragment.SLMenuListOnItemClickListener;
 import com.jesse.util.MyView;
 
 import android.os.Bundle;

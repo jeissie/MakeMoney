@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jesse.dao.download.DownloadComplege;
+import com.jesse.dao.download.DownloadImageComplete;
 import com.jesse.makemoney.R;
 import com.jesse.model.GetImageOnMain;
-import com.jesse.net.DownloadComplege;
-import com.jesse.net.DownloadImageComplete;
-import com.jesse.net.NetService;
+import com.jesse.server.NetService;
 import com.jesse.util.ContextUtil;
 import com.jesse.util.MakeMoneyDefine;
 import com.jesse.util.MyView;

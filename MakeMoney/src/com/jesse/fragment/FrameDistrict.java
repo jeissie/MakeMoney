@@ -3,9 +3,9 @@ package com.jesse.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jesse.dao.FrameMenu.SLMenuListOnItemClickListener;
 import com.jesse.gallery.MyGallery;
 import com.jesse.makemoney.R;
-import com.jesse.slidingMenu.MenuFragment.SLMenuListOnItemClickListener;
 
 import android.app.Activity;
 import android.graphics.Color;
