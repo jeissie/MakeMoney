@@ -9,10 +9,11 @@ import com.jesse.obj.ApkItem;
 public class ApkListImageAndText extends ApkItem{
 	 
 
+
 	public ApkListImageAndText(String imageUrl, String apk_zh_name,
-			String apk_size, String downloadUrl, int star) {
-		super(imageUrl, apk_zh_name, apk_size, downloadUrl, star);
-		// TODO Auto-generated constructor stub
+			String apk_size, String downloadUrl, int star, int money,
+			boolean installed) {
+		super(imageUrl, apk_zh_name, apk_size, downloadUrl, star, money, installed);
 	}
 
 	public String getImageUrl() {
@@ -34,6 +35,10 @@ public class ApkListImageAndText extends ApkItem{
 	
 	public int getStar(){
 		return star;
+	}
+	
+	public int getMoeny() {
+		return moeny;
 	}
 
 }

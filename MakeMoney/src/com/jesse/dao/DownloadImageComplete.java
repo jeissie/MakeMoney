@@ -1,4 +1,4 @@
-package com.jesse.dao.download;
+package com.jesse.dao;
 
 
 public class DownloadImageComplete implements DownloadComplege{

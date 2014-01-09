@@ -1,4 +1,4 @@
-package com.jesse.dao.download;
+package com.jesse.dao;
 
 public interface DownloadComplege {
 	public void complete();

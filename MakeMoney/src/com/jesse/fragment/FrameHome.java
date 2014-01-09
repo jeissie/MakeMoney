@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-import com.jesse.dao.FrameMenu.SLMenuListOnItemClickListener;
+import com.jesse.dao.SLMenuListOnItemClickListenerDao;
 import com.jesse.gallery.BitMapGroup;
 import com.jesse.gallery.MyGallery;
 import com.jesse.gallery.PageAdapter;
@@ -30,7 +30,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.LinearLayout.LayoutParams;
 
 public class FrameHome extends Fragment {
-	private SLMenuListOnItemClickListener mCallback; 
+	private SLMenuListOnItemClickListenerDao mCallback; 
 	private MyGallery gallery;
 	private LinearLayout linearLayout;
 	private List<BitMapGroup> objects;
@@ -48,7 +48,7 @@ public class FrameHome extends Fragment {
 	@Override
 	public void onAttach(Activity activity) {
 		try {
-			mCallback = (SLMenuListOnItemClickListener) activity;
+			mCallback = (SLMenuListOnItemClickListenerDao) activity;
 		} catch (ClassCastException e) {
 			throw new ClassCastException(activity.toString()
 					+ " must implement OnResolveTelsCompletedListener");

@@ -1,4 +1,4 @@
-package com.apklistview;
+package com.jesse.apkList;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,8 +6,6 @@ import java.lang.ref.SoftReference;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-
-import com.exceptiondialog.ShowExceptionDialog;
 
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -47,7 +45,6 @@ public class AsyncImageLoader {
 			}
 		};
 
-		// 下载图片
 		new Thread() {
 			@Override
 			public void run() {
@@ -67,7 +64,6 @@ public class AsyncImageLoader {
 		return null;
 	}
 
-	// 根据url下载图片
 	public static Drawable loadImageFromUrl(String url) throws IOException {
 		URL m;
 		InputStream i = null;

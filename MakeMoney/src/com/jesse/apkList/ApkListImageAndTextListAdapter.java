@@ -1,30 +1,23 @@
 package com.jesse.apkList;
 
-import java.io.File;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
-import javax.security.auth.PrivateCredentialPermission;
+import com.jesse.apkList.AsyncImageLoader.ImageCallback;
+import com.jesse.makemoney.R;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * @author jie
@@ -33,7 +26,6 @@ import android.widget.Toast;
 public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAndText> {
 
 	private ListView listView;
-	private Button download_button;
 	private AsyncImageLoader asyncImageLoader;
 	private int star = 0;
 	private String apkName;
@@ -62,7 +54,7 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
 		ApkListViewCache viewCache;
 		if (rowView == null) {
 			LayoutInflater inflater = activity.getLayoutInflater();
-			rowView = inflater.inflate(R.layout.apk_content, null);
+			rowView = inflater.inflate(R.layout.listview_item, null);
 			viewCache = new ApkListViewCache(rowView);
 			rowView.setTag(viewCache);
 		} else {
@@ -72,35 +64,25 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
 
 		TextView apk_zh_name = viewCache.getApk_zh_name();
 		apk_zh_name.setText(imageAndText.getApk_zh_name());
-
-		TextView apk_en_name = viewCache.getApk_en_name();
-		apk_en_name.setText(imageAndText.getApk_en_name());
-
-		TextView time = viewCache.getTime();
-		time.setText(imageAndText.getTime());
-
-		TextView apk_size = viewCache.getApk_size();
-		apk_size.setText(imageAndText.getApk_size());
-
-		TextView downloads = viewCache.getDownloads();
-		downloads.setText(imageAndText.getDownloads());
-
-		download_button = (Button) rowView.findViewById(R.id.download_apk);
+		
+		TextView apk_money = viewCache.getApk_money();
+		apk_money.setText(imageAndText.getMoeny());
+		
+//		TextView apk_size = viewCache.getApk_size();
+//		apk_size.setText(imageAndText.getApk_size());
+		
+		RatingBar ratingBar = viewCache.getRatingBar();
+		ratingBar.setNumStars(imageAndText.getStar());
+		
+		ImageButton download_button = viewCache.getDownloadsBtn();
 		download_button.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				final String url = imageAndText.getUrl();
-				apkName = imageAndText.getApk_zh_name()+ imageAndText.getApk_en_name();
-				DownloadApk.downLoadApk(apkName, url);
-
-				Toast.makeText(ContextUtil.getInstance(), apkName + "׼������",
-						Toast.LENGTH_SHORT).show();
+				// TODO Download or open apk
+				
 			}
 		});
 
-		// ��ȡͼƬ��Ϣ�����
 		String imageUrl = imageAndText.getImageUrl();
 		if (!imageUrl.equals("null")) {
 			imageView_icon = viewCache.getImageView_icon();
@@ -118,41 +100,13 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
 					});
 
 			if (cachedImage == null) {
-				imageView_icon.setImageResource(R.drawable.icon);
+				imageView_icon.setImageResource(R.drawable.downloading);
 			} else {
 				imageView_icon.setImageDrawable(cachedImage);
 			}
 		} else {
 			imageView_icon = viewCache.getImageView_icon();
-			imageView_icon.setImageResource(R.drawable.icon);// �˴�������ͼƬ
-		}
-
-		star = imageAndText.getStar();
-		switch (star) {
-		case 1:
-			imageView_star = viewCache.getImageView_star();
-			imageView_star.setImageResource(R.drawable.star_1);
-			break;
-		case 2:
-			imageView_star = viewCache.getImageView_star();
-			imageView_star.setImageResource(R.drawable.star_2);
-			break;
-		case 3:
-			imageView_star = viewCache.getImageView_star();
-			imageView_star.setImageResource(R.drawable.star_3);
-			break;
-		case 4:
-			imageView_star = viewCache.getImageView_star();
-			imageView_star.setImageResource(R.drawable.star_4);
-			break;
-		case 5:
-			imageView_star = viewCache.getImageView_star();
-			imageView_star.setImageResource(R.drawable.star_5);
-			break;
-		default:
-			imageView_star = viewCache.getImageView_star();
-			imageView_star.setImageResource(R.drawable.star_0);
-			break;
+			imageView_icon.setImageResource(R.drawable.downloading); 
 		}
 
 		return rowView;

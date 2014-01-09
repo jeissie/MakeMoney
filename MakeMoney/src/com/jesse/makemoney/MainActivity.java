@@ -2,7 +2,7 @@ package com.jesse.makemoney;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
-import com.jesse.dao.FrameMenu.SLMenuListOnItemClickListener;
+import com.jesse.dao.SLMenuListOnItemClickListenerDao;
 import com.jesse.fragment.FrameDistrict;
 import com.jesse.fragment.FrameHome;
 import com.jesse.slidingMenu.MenuFragment;
@@ -18,7 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends SlidingFragmentActivity implements SLMenuListOnItemClickListener , OnClickListener{
+public class MainActivity extends SlidingFragmentActivity implements SLMenuListOnItemClickListenerDao , OnClickListener{
 	private SlidingMenu mSlidingMenu;  
 	private ImageButton framMenuButton;
 	private ImageButton userInfoButton;

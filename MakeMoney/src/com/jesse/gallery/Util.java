@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jesse.dao.download.DownloadComplege;
-import com.jesse.dao.download.DownloadImageComplete;
+import com.jesse.dao.DownloadComplege;
+import com.jesse.dao.DownloadImageComplete;
 import com.jesse.makemoney.R;
 import com.jesse.model.GetImageOnMain;
 import com.jesse.server.NetService;

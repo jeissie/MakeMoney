@@ -2,7 +2,7 @@ package com.jesse.slidingMenu;
 
 import java.util.ArrayList;
 import com.jesse.customLayout.LeftMenuFragmentItem;
-import com.jesse.dao.FrameMenu.SLMenuListOnItemClickListener;
+import com.jesse.dao.SLMenuListOnItemClickListenerDao;
 import com.jesse.makemoney.R;
 import android.os.Bundle;
 import android.app.Activity;
@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 public class MenuFragment extends Fragment implements OnClickListener{
-	private SLMenuListOnItemClickListener mCallback;  
+	private SLMenuListOnItemClickListenerDao mCallback;  
 	private String[] mNavMenuTitles; 
 	private TypedArray mNavMenuIconsTypeArray;
 	
@@ -53,7 +53,7 @@ public class MenuFragment extends Fragment implements OnClickListener{
 	@Override  
     public void onAttach(Activity activity) {  
         try {  
-            mCallback = (SLMenuListOnItemClickListener) activity;  
+            mCallback = (SLMenuListOnItemClickListenerDao) activity;  
         } catch (ClassCastException e) {  
             throw new ClassCastException(activity.toString()  
                     + " must implement OnResolveTelsCompletedListener");  
