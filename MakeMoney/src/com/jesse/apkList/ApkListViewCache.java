@@ -18,7 +18,7 @@ public class ApkListViewCache {
 	private ImageView imageIcon;
 	private TextView apk_zh_name;
 	private TextView apk_money;
-	private ImageButton downloads;
+	private ImageView downloads;
 	private RatingBar ratingBar;
 	
 	public ApkListViewCache(View baseView) {
@@ -39,9 +39,9 @@ public class ApkListViewCache {
 		return apk_money;
 	}
 
-	public ImageButton getDownloadsBtn() {
+	public ImageView getDownloadsBtn() {
 		if (downloads == null) {
-			downloads = (ImageButton) baseView.findViewById(R.id.button);
+			downloads = (ImageView) baseView.findViewById(R.id.button);
 		}
 		return downloads;
 	}

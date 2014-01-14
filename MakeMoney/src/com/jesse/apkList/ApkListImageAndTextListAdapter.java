@@ -1,11 +1,14 @@
 package com.jesse.apkList;
 
+
 import java.util.List;
 
 import com.jesse.apkList.AsyncImageLoader.ImageCallback;
 import com.jesse.makemoney.R;
+import com.jesse.util.MyView;
 
 import android.app.Activity;
+import android.content.Context;
 
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -26,6 +29,7 @@ import android.widget.TextView;
 public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAndText> {
 
 	private ListView listView;
+	private Context context;
 	private AsyncImageLoader asyncImageLoader;
 	private int star = 0;
 	private String apkName;
@@ -36,25 +40,26 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
         return count;
     }
 	
-	public ApkListImageAndTextListAdapter(Activity activity,
+	
+	public ApkListImageAndTextListAdapter(Context context,
 			List<ApkListImageAndText> imageAndTexts, ListView listView) {
-		super(activity, 0, imageAndTexts);
+		super(context, 0, imageAndTexts);
+		this.context = context;
 		this.listView = listView;
-		asyncImageLoader = new AsyncImageLoader();
-		count = 10;  //TODO get the length in net
+		this.asyncImageLoader = new AsyncImageLoader();
+		count = imageAndTexts.size();  //TODO get the length in net
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		final Activity activity = (Activity) getContext();
 		ImageView imageView_icon = null;
-		ImageView imageView_star = null;
-
+		MyView.message("read in getview");
 		// 实例化listview
 		View rowView = convertView;
 		ApkListViewCache viewCache;
 		if (rowView == null) {
-			LayoutInflater inflater = activity.getLayoutInflater();
-			rowView = inflater.inflate(R.layout.listview_item, null);
+			LayoutInflater inflater = (LayoutInflater)
+                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+			rowView = inflater.inflate(R.layout.listview_item_unit, null);
 			viewCache = new ApkListViewCache(rowView);
 			rowView.setTag(viewCache);
 		} else {
@@ -63,10 +68,14 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
 		final ApkListImageAndText imageAndText = getItem(position);
 
 		TextView apk_zh_name = viewCache.getApk_zh_name();
+		if (apk_zh_name == null) {
+			MyView.Error("list item view is null");
+		}
+		MyView.message("name in adapter is" + imageAndText.getApk_zh_name());
 		apk_zh_name.setText(imageAndText.getApk_zh_name());
 		
 		TextView apk_money = viewCache.getApk_money();
-		apk_money.setText(imageAndText.getMoeny());
+		apk_money.setText(imageAndText.getMoeny() + "");
 		
 //		TextView apk_size = viewCache.getApk_size();
 //		apk_size.setText(imageAndText.getApk_size());
@@ -74,7 +83,7 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
 		RatingBar ratingBar = viewCache.getRatingBar();
 		ratingBar.setNumStars(imageAndText.getStar());
 		
-		ImageButton download_button = viewCache.getDownloadsBtn();
+		ImageView download_button = viewCache.getDownloadsBtn();
 		download_button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -84,7 +93,7 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
 		});
 
 		String imageUrl = imageAndText.getImageUrl();
-		if (!imageUrl.equals("null")) {
+		if (imageUrl != null) {
 			imageView_icon = viewCache.getImageView_icon();
 			imageView_icon.setTag(imageUrl);
 			Drawable cachedImage = asyncImageLoader.loadDrawable(imageUrl,

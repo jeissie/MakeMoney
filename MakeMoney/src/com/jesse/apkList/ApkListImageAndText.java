@@ -17,28 +17,28 @@ public class ApkListImageAndText extends ApkItem{
 	}
 
 	public String getImageUrl() {
-		return imageUrl;
+		return this.imageUrl;
 	}
 
 	public String getApk_zh_name() {
-		return apk_zh_name;
+		return this.apk_zh_name;
 	}
 	
 
 	public String getApk_size() {
-		return apk_size;
+		return this.apk_size;
 	}
 	
 	public String getDownloadUrl() {
-		return downloadUrl;
+		return this.downloadUrl;
 	}
 	
 	public int getStar(){
-		return star;
+		return this.star;
 	}
 	
 	public int getMoeny() {
-		return moeny;
+		return this.moeny;
 	}
 
 }
