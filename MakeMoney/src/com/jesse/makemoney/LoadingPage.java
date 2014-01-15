@@ -2,6 +2,7 @@ package com.jesse.makemoney;
 
 import java.io.File;
 
+import com.jesse.manager.InitData;
 import com.jesse.util.MyView;
 
 import android.os.Bundle;
@@ -24,6 +25,11 @@ public class LoadingPage extends Activity {
 		int screenWidth = getWindowManager().getDefaultDisplay().getWidth();
 		MyView.setScreenWidth(screenWidth);
 		creatFile();
+		
+		/******初始化用户数据******/
+		InitData initData = new InitData();
+		initData.initDeviceId();
+		initData.initUserData();
 		
 		Handler x = new Handler();
 		x.postDelayed(new Runnable() {

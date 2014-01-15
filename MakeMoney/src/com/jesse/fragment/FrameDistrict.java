@@ -24,6 +24,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -155,16 +156,15 @@ public class FrameDistrict extends Fragment {
 				
 			} else {
 				int listPosition = position - 1;
-				ListView everyView = mListPage.get(listPosition);
-				everyView = (ListView) arg0.findViewById(R.id.listView);
-				listPage.remove(listPosition);
-				listPage.add(listPosition, everyView);
+				MyView.message("position is " +position);
+				MyView.message("listPosition is " +listPosition);
+				mListPage.set(listPosition, (ListView) arg0.findViewById(R.id.listView));
 				loadingList(listPosition);
-				everyView.setOnItemClickListener(new OnItemClickListener() {
+				mListPage.get(listPosition).setOnItemClickListener(new OnItemClickListener() {
 					@Override
 					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-
+							int position, long arg3) {
+						Toast.makeText(getActivity(), "position"+position, Toast.LENGTH_SHORT).show();
 					}
 
 				});
@@ -174,7 +174,6 @@ public class FrameDistrict extends Fragment {
 	}
 	
 	public void loadingList(final int posetion){
-		MyView.message("posetion is " +posetion);
 		new Thread() {
 			@Override
 			public void run() {
@@ -198,11 +197,8 @@ public class FrameDistrict extends Fragment {
 		@Override
 		public void handleMessage(Message msg) {
 			int position = msg.what;
-			ApkListImageAndTextListAdapter adapter = adapterList.get(position);
-			adapter = new ApkListImageAndTextListAdapter(getActivity(), resourceList.get(position), listPage.get(position));
-				adapterList.remove(position);
-				adapterList.add(position, adapter);
-				listPage.get(position).setAdapter(adapterList.get(position));
+			adapterList.set(position, new ApkListImageAndTextListAdapter(getActivity(), resourceList.get(position), listPage.get(position)));
+			listPage.get(position).setAdapter(adapterList.get(position));
 		}
 	}
 }

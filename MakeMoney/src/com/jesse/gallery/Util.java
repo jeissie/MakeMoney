@@ -6,23 +6,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jesse.dao.DownloadComplege;
-import com.jesse.dao.DownloadImageComplete;
-import com.jesse.makemoney.R;
 import com.jesse.model.GetImageOnMain;
 import com.jesse.server.NetService;
-import com.jesse.util.ContextUtil;
 import com.jesse.util.MakeMoneyDefine;
 import com.jesse.util.MyView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 
 @SuppressLint("SdCardPath")
 public class Util {
@@ -57,7 +51,7 @@ public class Util {
 				} catch (FileNotFoundException e) {
 					//TODO 下载图片文件
 					MyView.Error("downloading ImageFile");
-					NetService.getInstance().requireService(context, "");
+					NetService.requireService(context, "");
 					e.printStackTrace();
 					continue;
 				} catch (IOException e) {
@@ -70,7 +64,7 @@ public class Util {
 			} else {
 				//TODO 下载图片文件
 				MyView.message("downloading ImageFile");
-				NetService.getInstance().requireService(context, "");
+				NetService.requireService(context, "");
 				continue;
 			}
 		} 

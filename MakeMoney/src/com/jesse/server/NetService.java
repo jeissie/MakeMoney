@@ -5,22 +5,15 @@ import android.graphics.BitmapFactory;
 
 import com.jesse.makemoney.R;
 import com.jesse.model.GetImageOnMain;
+import com.jesse.model.UserData;
 import com.jesse.util.ContextUtil;
 
 /**
  * @author jesse
  */
 public class NetService {
-	public static NetService instance = null;
 	
-	public static NetService getInstance() {
-		if (instance == null) {
-			instance = new NetService();
-		}
-		return instance;
-	}
-	
-	public void requireService(Context context, String requireDo) {
+	public static void requireService(Context context, String requireDo) {
 		//TODO download require then use callBack
 		
 		//TODO This is test. Then you should get the source from net. Use the source length to make the object!

@@ -52,7 +52,6 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		ImageView imageView_icon = null;
-		MyView.message("read in getview");
 		// 实例化listview
 		View rowView = convertView;
 		ApkListViewCache viewCache;
@@ -71,7 +70,6 @@ public class ApkListImageAndTextListAdapter extends ArrayAdapter<ApkListImageAnd
 		if (apk_zh_name == null) {
 			MyView.Error("list item view is null");
 		}
-		MyView.message("name in adapter is" + imageAndText.getApk_zh_name());
 		apk_zh_name.setText(imageAndText.getApk_zh_name());
 		
 		TextView apk_money = viewCache.getApk_money();

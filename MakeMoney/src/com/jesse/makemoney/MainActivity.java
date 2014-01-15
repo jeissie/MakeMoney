@@ -5,6 +5,7 @@ import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.jesse.dao.SLMenuListOnItemClickListenerDao;
 import com.jesse.fragment.FrameDistrict;
 import com.jesse.fragment.FrameHome;
+import com.jesse.fragment.FrameItems;
 import com.jesse.slidingMenu.MenuFragment;
 import com.jesse.slidingMenu.RightMenuFragment;
 
@@ -93,11 +94,15 @@ public class MainActivity extends SlidingFragmentActivity implements SLMenuListO
 	public void selectItem(int position, String title) {  
         Fragment fragment = null;    
         switch (position) {    
-        case 1:    
-        	fragment = new FrameHome();
-            break;  
-        case 2:
-        	fragment = new FrameDistrict();
+	        case 1:    
+	        	fragment = new FrameHome();
+	            break;  
+	        case 2:
+	        	fragment = new FrameDistrict();
+	        	break;
+	        case 3:
+	        	fragment = new FrameItems();
+	        	break;
         }    
         
         if (fragment != null) {    
