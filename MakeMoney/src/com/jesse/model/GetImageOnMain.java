@@ -22,6 +22,8 @@ public class GetImageOnMain {
 	public static GetImageOnMain instances = null;
 	private List<BitMapGroup> objects = new ArrayList<BitMapGroup>();
 	
+	private GetImageOnMain() {}
+	
 	public static GetImageOnMain getInstance() {
 		if (instances == null) {
 			instances = new GetImageOnMain();
