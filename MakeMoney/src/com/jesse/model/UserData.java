@@ -5,6 +5,8 @@ import com.jesse.obj.UserInfo;
 public class UserData extends UserInfo{
 	public static UserData instances = null;
 	
+	private UserData() {}
+	
 	public static UserData getInstance() {
 		if (instances == null) {
 			instances = new UserData();
